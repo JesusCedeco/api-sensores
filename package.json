@@ -1,0 +1,30 @@
+{
+  "name": "sensores",
+  "version": "1.0.0",
+  "autor": "Jesús Castaño",
+  "año": "2025",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-basic-auth": "^1.2.1",
+    "express-session": "^1.18.1",
+    "json2csv": "^6.0.0-alpha.2",
+    "kafkajs": "^2.2.4",
+    "mongodb": "^6.17.0",
+    "mysql2": "^3.14.1",
+    "mysql2-promise": "^0.1.4",
+    "socket.io": "^4.8.1"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>box</title>
+</head>
+<body>
+    <!-- Cabecero -->
+   <header>
+        <div class="header-content">
+            <div class="logo-title">
+                <h1>Bienvenido a Mi Sitio Web</h1>
+                <p>Un lugar simple y acogedor</p>
+            </div>
+            <nav class="header-nav">
+                <a href="./">Inicio</a>
+                <a href="./box">Box</a>
+                <a href="./dashboard">Dashboard</a>
+                <a href="./usuarios"></i>Usuarios</a>
+                <a href="./login">Login</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Contenido principal -->
+     <main>
+        <div class="container">
+            <h2>Cámara de movil</h2>
+            
+            <section class="galeria">
+                <img id="cam" class="galeria_box" src="http://192.168.75.212:8080/video" alt="Cámara del móvil">     
+            </section>
+        </div>
+    </main>
+    <div class="botones">
+      <button onclick="iniciarKafka()">Iniciar Kafka</button>
+      <button onclick="detenerKafka()">Detener Kafka</button>
+    </div>
+
+      <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mi Página Web Simple. Todos los derechos reservados.</p>
+        <p>Contacto: jesuscastanocedeco@gmail.com</p>
+    </footer>
+    <script>
+        function iniciarKafka() {
+        fetch('/kafka/start')
+            .then(res => res.text())
+            .then(data => alert(data))
+            .catch(err => alert("Error al iniciar Kafka: " + err));
+        }
+
+        function detenerKafka() {
+        fetch('/kafka/stop')
+            .then(res => res.text())
+            .then(data => alert(data))
+            .catch(err => alert("Error al detener Kafka: " + err));
+        }
+    </script>
+</body>
+</html>

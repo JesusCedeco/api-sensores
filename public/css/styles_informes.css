@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(212, 233, 226);
+}
+
+/* Cabecero */
+/* Estilos del header mejorado */
+header {
+    background-color: #1625a5;
+    color: white;
+    padding: 0 5%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-title h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+.logo-title p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+    text-align: left;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+}

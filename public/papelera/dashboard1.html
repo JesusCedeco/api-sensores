@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles_dashboar.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="contenedor-grid">
+        <div class="caja1">
+            <img class="logo" src="/img/foto4.jpeg" alt="Descripción de la foto 1">
+            <a href="./box">box</a>
+            <a href="./">Inicio</a>
+        </div>
+        <div id="celda-movimiento" class="caja caja2">Foto 1</div>
+        <div class="caja caja3">Foto 2</div>
+        <div class="caja caja4">Foto 3</div>
+        <div class="caja caja5">
+            <canvas id="graficoNivelMovimiento"></canvas>
+        </div>
+        <div class="caja caja6">
+            <img id="cam" src="http://192.168.75.212:8080/video" alt="Cámara del móvil">
+        </div>
+        <div id="celda-movimiento" class="caja caja7">Foto 6 Grande</div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('graficoNivelMovimiento').getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Marcas de tiempo
+                datasets: [{
+                    label: 'Nivel de Movimiento',
+                    data: [],
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Hora' }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Nivel' }
+                    }
+                }
+            }
+        });
+
+        const socket = io("http://192.168.74.10:5008");
+
+        socket.on("connect", () => {
+            console.log("✅ Conectado al servidor WebSocket");
+        });
+
+        socket.on("evento", (data) => {
+            console.log("📡 Evento recibido:", data);
+
+            const tiempo = new Date(data.timestamp).toLocaleTimeString();
+            const nivel = data.nivel;
+
+            // Añadir nuevos datos al gráfico
+            chart.data.labels.push(tiempo);
+            chart.data.datasets[0].data.push(nivel);
+
+            // Mantener solo los últimos 20 puntos
+            if (chart.data.labels.length > 20) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+
+            chart.update();
+        });
+
+        socket.on("disconnect", () => {
+            console.warn("❌ Desconectado del servidor");
+        });
+    </script>
+    <script>
+        const socket = io("http://192.168.74.10:5008");
+
+        socket.on("connect", () => {
+            console.log("✅ Conectado al servidor WebSocket");
+        });
+
+        socket.on("evento", (data) => {
+            console.log("📡 Evento recibido:", data);
+            socket.emit("evento", data);
+            const celda = document.getElementById("celda-movimiento");
+            if (celda) {
+                celda.innerText = Movimiento: ${data.evento} 🕒 ${new Date(data.timestamp).toLocaleTimeString()};
+            }
+        });
+
+        socket.on("disconnect", () => {
+            console.warn("❌ Desconectado del servidor");
+        });
+    </script>
+</body>
+
+</html>
+
+como quito los script y donde los meto (js)

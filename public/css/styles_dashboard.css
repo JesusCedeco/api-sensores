@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    margin: 0;
+    padding: 0;
+}
+a{
+    padding-top: 20px;
+}
+.caja{
+    border: 10px solid #dbd5e0; 
+    border-radius: 20px;
+    padding: 1rem;  
+    display: flex;
+    box-shadow: #4a6464;
+}
+.caja:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+.logo {
+    width: 80%;
+    max-width: 150px;
+    border-radius: 10px;
+}
+
+/*Pestaña activa*/
+.active {
+  font-weight: bold;
+  color: #0f0e0f !important; /* Cambia esto al color que prefieras */
+}
+/* ... (mantén tus estilos anteriores hasta .contenedor-grid) ... */
+
+.contenedor-grid {
+    background-color: #dbd5e0;
+    display: grid;
+    grid-template-areas: 
+        'lateral foto1 foto2 foto3 foto4'
+        'lateral foto5 foto5 foto6 foto6'
+        'lateral footer footer footer footer';
+    grid-template-rows: auto 1fr auto; /* Más flexible */
+    grid-template-columns: 200px 1fr 1fr 1fr; /* Ancho fijo para lateral */
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.caja1 {
+    grid-area: lateral;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgb(59, 80, 80);
+    overflow-y: auto; /* Scroll si el contenido es largo */
+}
+
+.caja1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%; /* Ocupa todo el ancho disponible */
+    text-align: left;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Evita saltos de línea */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Puntos suspensivos si el texto es largo */
+    box-sizing: border-box;
+}
+
+.caja1 a:hover {
+    background-color: #6a8a8a;
+    transform: translateX(5px); /* Efecto sutil al hover */
+}
+
+/* Media query para móviles/tablets */
+@media (max-width: 1024px) {
+    .contenedor-grid {
+        grid-template-areas: 
+            'lateral lateral lateral lateral'
+            'foto1 foto2 foto3 foto4'
+            'foto5 foto5 foto6 foto6'
+            'footer footer footer footer';
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+    
+    .caja1 {
+        flex-direction: row; /* Menú horizontal en móviles */
+        overflow-x: auto;
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .caja1 a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        min-width: max-content; /* Ancho según contenido */
+    }
+}
+.caja2{
+    grid-area: foto1;
+    background-color: blue;
+}
+.caja3{
+    grid-area: foto2;
+    background-color: aquamarine;
+}
+.caja4{
+    grid-area: foto3;
+    background-color: blanchedalmond;
+}
+.caja5{
+    grid-area: foto4;
+    background-color: beige;
+}
+.caja6{
+    grid-area: foto5;
+}
+.caja6 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px; 
+}
+
+.caja7{
+    grid-area: foto6;
+    background-color: #8b64af;
+}
+
+/* Footer */
+footer {
+    grid-area:footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Esto hace que el footer se quede abajo */
+    width: 100%;
+    max-height: 80px;
+}

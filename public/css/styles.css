@@ -1,0 +1,145 @@
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Esto es clave para que el footer se quede abajo */
+    background-color: rgb(223, 220, 215);
+    text-align: center;
+}
+
+
+
+/* Cabecero */
+/* Estilos del header mejorado */
+header {
+    background-color: #1625a5;
+    color: white;
+    padding: 0 5%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-title h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+.logo-title p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+    text-align: left;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        padding: 15px 0;
+        text-align: center;
+    }
+    
+    .logo-title h1,
+    .logo-title p {
+        text-align: center;
+    }
+    
+    .header-nav {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Contenido principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    flex: 1; /* Hace que el contenido ocupe todo el espacio disponible */          
+}
+
+
+.presentacion {
+    margin-bottom: 30px;
+}
+
+.galeria {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+.galeria .galeria_box{
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.galeria img {
+    width: 30%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Esto hace que el footer se quede abajo */
+    width: 100%;
+    max-height: 80px;
+}
+
+@media (max-width: 768px) {
+    .galeria img {
+        width: 100%;
+    }
+}

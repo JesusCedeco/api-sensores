@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles_dashboard.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="contenedor-grid">
+        <div class="caja1">
+            <img class="logo" src="/img/foto4.jpeg" alt="Descripción de la foto 1">
+            <a href="./">Inicio</a>
+            <a href="./box">box</a>
+            <a href="./dasboard" class="active">Dashboard</a>
+            <a href="./registros">Registros</a>
+            <a href="./usuarios">Usuarios</a>
+            <a href="./login">login</a>
+            <a href="./descargar">Descargar Registros</a>
+        </div>
+        <div class="caja caja2">Foto 1</div>
+        <div class="caja caja3">Foto 2</div>
+        <div class="caja caja4">Foto 3</div>
+        <div class="caja caja5">
+            <canvas id="graficoNivelMovimiento"></canvas>
+        </div>
+        <div class="caja caja6">
+            <img id="cam" src="http://192.168.75.212:8080/video" alt="Cámara del móvil">
+        </div>
+        <div id="celda-movimiento" class="caja caja7">Foto 6 Grande</div>
+        <footer>
+            <p>&copy; 2025 Mi Página Web Simple. Todos los derechos reservados.</p>
+            <p>Contacto: jesuscastanocedeco@gmail.com</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/dashboard.js"></script>
+   
+</body>
+
+</body>
+
+</html>

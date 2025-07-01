@@ -1,0 +1,42 @@
+body {
+    background-color: #f8f9fa;
+    height: 100vh;
+    align-items: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.active {
+  font-weight: bold;
+  color: #007bff; /* Cambia esto al color que prefieras */
+}
+
+.btn-login {
+    background-color: #0d6efd;
+    border: none;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.btn-register {
+    background-color: red;
+    color: #a2b0c5;
+    border: 2px solid rgb(197, 119, 119);
+    padding: 10px 0;
+    font-weight: 600;
+}
+.btn-register:hover{
+    background-color: rgb(155, 70, 70);
+}
